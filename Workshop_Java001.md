@@ -7,8 +7,8 @@ Avant de commencer ce Workshop il faut installer certaines choses 😁.
 # Installation 🔨
 
 - IntelliJ IDEA:
-Contrairement au C vous aurez besoin d'un IDE pour pouvoir lancer vos programmes java. À partir de 2 fichier contenant du code Java le lancement devient compliqué sans IDE 😅.
-L'IDE le plus développé en Java est IntelliJ vous pouvez vous rendre à cette adresse: https://www.jetbrains.com/fr-fr/idea/download/#section=mac et télécharger la version "community", elle est gratuite et sufisante pour la suite du workshop.
+Contrairement au C vous aurez besoin d'un IDE pour pouvoir lancer vos programmes Java. À partir de 2 fichiers contenant du code Java le lancement devient compliqué sans IDE 😅.
+L'IDE le plus développé en Java est IntelliJ vous pouvez vous rendre à cette adresse: https://www.jetbrains.com/fr-fr/idea/download/#section=mac et télécharger la version `community`, elle est gratuite et sufisante pour la suite du workshop.
 
 
 ## EX00: La premiere fois
@@ -18,17 +18,17 @@ Dans cette exercise il faut ce familiariser avec votre environnement de dévelop
 Vous pouvez déjà lancer votre IDE IntellidJ, vous allez arriver sur cette page.
 ![N|Solid](/assets/intelliJ_home.png)
 Nous allons utiliser le même projet pour chaque exercise. Les exercises ne sont pas indépendant, pour pouvoir faire l'ex01 il faut avoir réussi l'ex00.
-Pour pouvoir créer notre premier projet appuyez sur "Create New Project".
+Pour pouvoir créer notre premier projet appuyez sur `Create New Project`.
 
 Vous arrivez ensuite sur cette page:
 ![N|Solid](/assets/project_first_step.png)
-Par défault la java est déjà selectionné en version 1.8, vous devez juste cliquer sur "Next". Sur la page suivante cliquez également sur "Next".
+Par défault la java est déjà selectionné en version 1.8, vous devez juste cliquer sur `Next`. Sur la page suivante cliquez également sur `Next`.
 
 Vous devez arriver normalement sur cette page si vous êtes pas trop nul 😜:
 
 ![N|Solid](/assets/project_name.png)
 
-J'ai mis Workshop_Java001 en nom de projet, vous pouvez mettre ce que vous voulez. Vous pouvez cliquer sur "Fnish". Notre projet est efin crée 😏.
+J'ai mis Workshop_Java001 en nom de projet, vous pouvez mettre ce que vous voulez. Vous pouvez cliquer sur `Finish`. Notre projet est enfin crée 😏.
 
 ![N|Solid](/assets/IDE.png)
 
@@ -122,4 +122,65 @@ Je vous laisse un main de test et l'output que vous devez obtenir ensuite:
 
 ## EX03: Héritage
 
-Dans cette exercise nous allons voir un concept essentiel à la programmation orientée objet. L'héritage permet à la classe qui hérite d'utiliser les méthodes et attributs public (ou protected mais nous allons pas aborder ce type je vous laisse vous renseignez tout seul de votre coté) présent dans cette classe. Pour notre classe Character nous alons faire 2 classe qui hérite de celle-ci. Une nommée `DarkVador`et une autre nommée `Yoda`. Les deux classe ont tous les deux besoin de la classe character, effectivement DarkVador et Yoda sont des personnages du film Star Wars et bien dans notre projet c'est la même chose ils appartiennent aussi à la classe Character.
+Dans cette exercise nous allons voir un concept essentiel à la programmation orientée objet. L'héritage permet à la classe qui hérite d'utiliser les méthodes et attributs public (ou protected mais nous allons pas aborder ce type je vous laisse vous renseignez tout seul de votre coté) présent dans cette classe. Pour notre classe Character nous aurront 2 classes qui hérite de celle-ci. Une nommée `DarkVador`et une autre nommée `Yoda`. Les 2 classes ont tous les deux besoin de la classe character, effectivement DarkVador et Yoda sont des personnages du film Star Wars et bien dans notre projet c'est la même chose ils appartiennent aussi à la classe Character.
+La dernière chose à comprendre pour l'héritage c'est lors de la construction. Effectivement une classe qui hérite d'une classe va devoir appeler le constructeur de ca classe supérieur. Je vous laisse chercher comment faire pour qu'une classe hérite d'une autre ainsi que pour `super` bien appeler le constructeur de la classe supérieur 😜.
+
+Lorsque que vous allez créer vos 2 nouvelles classe vous ne devez créer aucune méthodes 🧐. Notre utiliserons les méthodes de la classe `Character` obtenu grâce à l'héritage.
+
+Voici le main de test ainsi que l'output à obtenir:
+```java
+    public static void main(String[] args) {
+        Yoda yoda = new Yoda();
+        DarkVador darkVador = new DarkVador();
+
+        yoda.sayHello();
+        darkVador.sayHello();
+    }
+````
+
+![N|Solid](/assets/ex03.png)
+
+## EX04: List et type
+
+Dans cette dernière partie nous allons voir comment déclarer une liste d'élément et lui définir un type.
+
+Voici comment ce déclare une liste:
+```java
+List<String> list
+```
+
+Le type de la liste est `String` c'est à dire que c'est une liste de `String`, pas compliqué non ?
+Cette objet `List`contient pleins de méthodes qui vont nous permettre d'effectuer des opérations ou des actions sur elle mêmes.
+
+exemple:
+```java
+list.add("first");
+```
+
+La méthode add permet d'ajouter un élement dans la liste.
+
+Passons maintenant à la pratique et à l'utilisation de l'héritage crée à l'exercise précédent. Vous allez devoir ajouter des amis à nos classes `Yoda` et `Dark Vador`. Pour se faire vous devez créer une liste de Character. Vous devez aussi créer une méthodes `add` et `friendSayHello` dans Character.
+
+Je vous donne pas de nom de classe défini pour les amis vous pouvez mettre ce que vous voulez.
+Je vous laisse un main de test et l'output (ATTENTION: il se peut que vos nouvelles classes ne soit pas nommées de la même facon que le mienne vous devez adapter le main afin de prendre vo noms de classe).
+
+```java
+    public static void main(String[] args) {
+        Yoda yoda = new Yoda();
+        DarkVador darkVador = new DarkVador();
+        Anakin anakin = new Anakin();
+        Palpatin palpatin = new Palpatin();
+        DarkMaul darkMaul = new DarkMaul();
+        Luke luke = new Luke();
+
+        yoda.addFriends(anakin);
+        darkVador.addFriends(palpatin);
+        darkVador.addFriends(darkMaul);
+        yoda.friendSayHello();
+        yoda.addFriends(luke);
+        darkVador.friendSayHello();
+        yoda.friendSayHello();
+    }
+```
+
+![N|Solid](/assets/ex04.png)
